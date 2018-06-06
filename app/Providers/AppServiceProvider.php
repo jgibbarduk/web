@@ -9,7 +9,12 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot(){}
+    public function boot(){
+        if(env('EXTERNAL_URL') != "")
+        {
+            URL::forceRootUrl(env('EXTERNAL_URL'));
+        }   
+    }
 
     /**
      * Register any application services.
